@@ -1,4 +1,4 @@
-package week1.lab3;
+package week1.lab3_1;
 
 public class Employee {
 
