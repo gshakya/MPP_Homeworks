@@ -4,7 +4,18 @@ public class Course {
 	private Faculty ofFaculty;
 	private String number;
 	private String title;
-	private int unirs;
+	private int units;
+	
+	
+	
+	public Course( String number, String title, int units, Faculty ofFaculty) {
+		super();
+		this.ofFaculty = ofFaculty;
+		this.number = number;
+		this.title = title;
+		this.units = units;
+		ofFaculty.addCourse(this);
+	}
 	public Faculty getOfFaculty() {
 		return ofFaculty;
 	}
@@ -23,11 +34,11 @@ public class Course {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getUnirs() {
-		return unirs;
+	public int getUnits() {
+		return units;
 	}
-	public void setUnirs(int unirs) {
-		this.unirs = unirs;
+	public void setUnits(int unirs) {
+		this.units = unirs;
 	}
 	
 	

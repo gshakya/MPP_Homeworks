@@ -5,6 +5,18 @@ public class Person {
 	private String phone;
 	private int age;
 	
+	public Person(String name, String phone, int age) {
+		super();
+		this.name = name;
+		this.phone = phone;
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName()+" [name=" + name + ", phone=" + phone + ", age=" + age + "]";
+	}
+
 	public String getName() {
 		return name;
 	}

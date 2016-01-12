@@ -21,33 +21,41 @@ public class DepartmentApplication
       //  The following commented out code will help you 
       //  create the objects that you need.
       
-      /*******************************************************
-      
+     
 		// Create faculty objects
 		Faculty frankMoore = new Faculty("Frank Moore","472-5921",43,10000);	
 		Faculty samHoward = new Faculty("Sam Howard","472-7222",55,9500);
 		Faculty johnDoodle = new Faculty("John Doodle","472-6190",39,8600);
-		dept.addFaculty(frankMoore);
-		dept.addFaculty(samHoward);
-		dept.addFaculty(johnDoodle);
+		dept.addPerson(frankMoore);
+		dept.addPerson(samHoward);
+		dept.addPerson(johnDoodle);
 
 
 		// Create student objects
 		Student johnDoe = new Student("John Doe","472-1121",22,4.0);
 		Student maryJones = new Student("Mary Jones","472-7322",32,3.80);
 		Student leeJohnson = new Student("Lee Johnson","472-6009",19,3.65);
-		dept.addStudent(johnDoe);
-		dept.addStudent(maryJones);
-		dept.addStudent(leeJohnson);
+		dept.addPerson(johnDoe);
+		dept.addPerson(maryJones);
+		dept.addPerson(leeJohnson);
 		
 
 		// Create staff objects
 		Staff frankGore = new Staff("Frank Gore","472-3321",33,4050);
 		Staff adamDavis = new Staff("Adam Davis","472-7552",50,5500);
 		Staff davidHeck = new Staff("David Heck","472-8890",29,3600);
-		dept.addStaff(frankGore);
-		dept.addStaff(adamDavis);
-		dept.addStaff(davidHeck);
+		dept.addPerson(frankGore);
+		dept.addPerson(adamDavis);
+		dept.addPerson(davidHeck);
+		
+		
+		// Create Student staff objects
+		StaffStudent adamJames = new StaffStudent("Adam James","472-3321",33,4050,3.6);
+		StaffStudent rickBush = new StaffStudent("Rick Bush","472-3321",33,4050,3.6);
+		StaffStudent adamJames = new StaffStudent("Adam James","472-3321",33,4050,3.6);
+		dept.addPerson(frankGore);
+		dept.addPerson(adamDavis);
+		dept.addPerson(davidHeck);
 
 		// Create course objects	
 		Course cs201 = new Course("cs201","programming",4, johnDoodle);
@@ -70,7 +78,7 @@ public class DepartmentApplication
 		 *  for students.
 		 */
       
-      /********************************************************/
+     
       
       
       double totsalary = 0;
