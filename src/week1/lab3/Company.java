@@ -12,11 +12,12 @@ public class Company{
 	}
 	
 	public void addDepartment(Department d){
+		d.setCompany(this);
 		assocDept.add(d);
 	}
 	
 	public void print(){
-		System.out.println("> Company: "+name);
+		System.out.println("Company: "+name);
 		for(Department d : assocDept){
 			d.print("--");
 		}
