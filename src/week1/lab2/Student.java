@@ -2,7 +2,7 @@ package week1.lab2;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends Person implements Studies {
 	private double gpa;
 	private ArrayList<Course> coursesTaken;
 

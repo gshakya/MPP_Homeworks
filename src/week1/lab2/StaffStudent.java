@@ -1,6 +1,6 @@
 package week1.lab2;
 
-public class StaffStudent extends Staff {
+public class StaffStudent extends Staff  implements Earns,Studies{
 
 	private Student stdInfo;
 

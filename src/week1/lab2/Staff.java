@@ -1,6 +1,6 @@
 package week1.lab2;
 
-public class Staff extends Person {
+public class Staff extends Person implements Earns {
 	
 
 	private double salary;

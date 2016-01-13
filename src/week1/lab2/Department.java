@@ -40,13 +40,9 @@ public class Department {
 	public double getTotalSalary() {
 		int totalSalary = 0;
 		for (Person p : deptMembers) {
-			if (p instanceof Faculty) {
-				Faculty f = (Faculty) p;
-				totalSalary += f.getSalary();
-			}
-			if (p instanceof Staff) {
-				Staff f = (Staff) p;
-				totalSalary += f.getSalary();
+			if (p instanceof Earns) {
+				Earns e = (Earns) p;
+				totalSalary += e.getSalary();
 			}
 		}
 		return totalSalary;
@@ -86,15 +82,16 @@ public class Department {
 		return students;
 	}
 	
-	public void showStudentOfFaculty(String name){
+	public void displayStudentsOfFaculty(String name){
 		Faculty f = getFaculty(name);
-		ArrayList<Student> facultyStudents  = getAllStudents();
+		ArrayList<Student> students  = getAllStudents();
+		ArrayList<Student> facultyStudents = (ArrayList<Student>) students.clone();
 		
 		
 		if (f!=null){
 			System.out.println("Students of Faculty Member "+name+" are:");
 			for  (Course c: f.getCoursesOffered()){
-				for(Student s : facultyStudents){
+				for(Student s : students){
 					if(!s.hasFaculty(f)){
 						facultyStudents.remove(s);
 					}

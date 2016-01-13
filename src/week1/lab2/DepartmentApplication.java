@@ -97,13 +97,13 @@ public class DepartmentApplication
       
      
       
-      dept.showStudentOfFaculty("John Doodle");
+      
       double totsalary = 0;
 
       while(true)
          {
          putText("Enter first letter of ");
-         putText("getTotalSalary, showAllMembers, unitsPerFaculty or quit : ");
+         putText("getTotalSalary, showAllMembers, unitsPerFaculty ,displayStudentsOfFaculty or quit : ");
          int choice = getChar();
          switch(choice)
             {
@@ -119,6 +119,16 @@ public class DepartmentApplication
                dept.unitsPerFaculty();
                break;
             case 'q': return;
+            
+            case 'd':
+            	System.out.printf("Enter Faculty Name: ");
+            	String facName = getString();
+            	
+            	dept.displayStudentsOfFaculty(facName.trim());
+            	break;	
+            
+            
+            
             default:
                putText("Invalid entry\n");
             }  // end switch
