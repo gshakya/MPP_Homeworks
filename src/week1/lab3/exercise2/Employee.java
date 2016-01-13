@@ -1,4 +1,4 @@
-package week1.lab3_2;
+package week1.lab3.exercise2;
 
 public class Employee {
 
@@ -44,5 +44,8 @@ public class Employee {
 		empPost= position;
 		
 	}
-
+	
+	public double getSalary(){
+		return salary;
+	}
 }

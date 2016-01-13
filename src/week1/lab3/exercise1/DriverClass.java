@@ -1,4 +1,4 @@
-package week1.lab3_2;
+package week1.lab3.exercise1;
 
 import javax.swing.text.StyleContext.SmallAttributeSet;
 

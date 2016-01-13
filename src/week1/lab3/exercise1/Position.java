@@ -1,4 +1,4 @@
-package week1.lab3_2;
+package week1.lab3.exercise1;
 
 import java.util.ArrayList;
 
@@ -28,8 +28,8 @@ public class Position {
 
 	
 	public void print(String string) {
-		System.out.println(string+"Postion Title: "+ title);
-		System.out.println(string+"Postion Description: "+ description);
+		System.out.println(string+"Position Title: "+ title);
+		System.out.println(string+"Position Description: "+ description);
 		for (Employee e : assocEmps){
 			e.print(string+"--");
 		}

@@ -1,4 +1,4 @@
-package week1.lab3_1;
+package week1.lab3.exercise1;
 
 public class Employee {
 
@@ -36,7 +36,7 @@ public class Employee {
 		System.out.println(string+"Employee Last Name: "+lastName);
 		System.out.println(string+"Employee Birthdate: "+dob);
 		System.out.println(string+"Employee SSN: "+ ssn);
-		System.out.println(string+"Employee Salary: "+salary);
+		System.out.printf(string+"Employee Salary: $%,.2f \n",salary);
 		
 	}
 

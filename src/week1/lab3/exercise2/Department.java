@@ -1,4 +1,4 @@
-package week1.lab3_2;
+package week1.lab3.exercise2;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class Department {
 
 	public double getSalary() {
 		// TODO Auto-generated method stub
-		int totalSalary = 0 ;
+		double totalSalary = 0 ;
 		for (Position p : assocPostions){
 			totalSalary = totalSalary + p.getSalary();
 		}

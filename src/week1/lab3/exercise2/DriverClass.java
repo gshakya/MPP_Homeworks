@@ -1,4 +1,4 @@
-package week1.lab3_1;
+package week1.lab3.exercise2;
 
 import javax.swing.text.StyleContext.SmallAttributeSet;
 
@@ -44,7 +44,8 @@ public class DriverClass {
 		
 //		verisk.print();
 		
-		rnd.print();
+		System.out.printf("Overall Salary of the Company = $%,.2f",verisk.getSalary());
+		System.out.printf("Overall  Salary of the Company = $%,.2f",verisk.getSalary());
 	}
 
 }

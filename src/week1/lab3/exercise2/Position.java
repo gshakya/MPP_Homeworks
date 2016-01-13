@@ -1,4 +1,4 @@
-package week1.lab3_1;
+package week1.lab3.exercise2;
 
 import java.util.ArrayList;
 
@@ -38,5 +38,13 @@ public class Position {
 	
 	public void setDepartment(Department d){
 		this.deptName = d;
+	}
+	
+	public double getSalary(){
+		double totalSalary= 0;
+		for (Employee e : assocEmps){
+			totalSalary += e.getSalary();
+		}
+		return totalSalary;
 	}
 }
