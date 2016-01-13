@@ -39,6 +39,8 @@ public class DepartmentApplication
 		dept.addPerson(maryJones);
 		dept.addPerson(leeJohnson);
 		
+		
+		
 
 		// Create staff objects
 		Staff frankGore = new Staff("Frank Gore","472-3321",33,4050);
@@ -50,12 +52,12 @@ public class DepartmentApplication
 		
 		
 		// Create Student staff objects
-		StaffStudent adamJames = new StaffStudent("Adam James","472-3321",33,4050,3.6);
-		StaffStudent rickBush = new StaffStudent("Rick Bush","472-3321",33,4050,3.6);
-		StaffStudent adamJames = new StaffStudent("Adam James","472-3321",33,4050,3.6);
-		dept.addPerson(frankGore);
-		dept.addPerson(adamDavis);
-		dept.addPerson(davidHeck);
+		StaffStudent adamJames = new StaffStudent("Adam James","472-3321",33,4000,3.6);
+		StaffStudent rickBush = new StaffStudent("Rick Bush","472-2088",33,2050,3.9);
+		StaffStudent jamesHogg = new StaffStudent("James Hogg","472-4577",33,3500,3.6);
+		dept.addPerson(adamJames);
+		dept.addPerson(rickBush);
+		dept.addPerson(jamesHogg);
 
 		// Create course objects	
 		Course cs201 = new Course("cs201","programming",4, johnDoodle);
@@ -64,6 +66,21 @@ public class DepartmentApplication
 		Course cs240 = new Course("cs240","datastructure",2, johnDoodle);
 		Course cs301 = new Course("cs301","Software engg",3, samHoward);
 		Course cs450 = new Course("cs450","Advanced architecture",5,frankMoore);
+		
+		johnDoe.addCourse(cs201);
+		johnDoe.addCourse(cs360);
+		johnDoe.addCourse(cs404);
+		johnDoe.addCourse(cs301);
+		
+		maryJones.addCourse(cs201);
+		maryJones.addCourse(cs404);
+		maryJones.addCourse(cs450);
+		
+		leeJohnson.addCourse(cs201);
+		leeJohnson.addCourse(cs360);
+		leeJohnson.addCourse(cs240);
+		leeJohnson.addCourse(cs450);
+		
 		
 		/*
 		 * The above course objects will go inside either
@@ -80,7 +97,7 @@ public class DepartmentApplication
       
      
       
-      
+      dept.showStudentOfFaculty("John Doodle");
       double totsalary = 0;
 
       while(true)

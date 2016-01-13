@@ -25,6 +25,36 @@ public class Faculty extends Person {
 		return coursesOffered;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((coursesOffered == null) ? 0 : coursesOffered.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(salary);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Faculty other = (Faculty) obj;
+		if (coursesOffered == null) {
+			if (other.coursesOffered != null)
+				return false;
+		} else if (!coursesOffered.equals(other.coursesOffered))
+			return false;
+		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
+			return false;
+		return true;
+	}
+
 	public void addCourse(Course c) {
 		coursesOffered.add(c);
 	}
@@ -36,5 +66,7 @@ public class Faculty extends Person {
 		}
 		return totalUnits;
 	}
+	
+	
 	
 }
