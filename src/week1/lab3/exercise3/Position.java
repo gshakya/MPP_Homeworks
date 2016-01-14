@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 public class Position {
 	private String title;
 	private String description;
-	private ArrayList<Employee> assocEmps;
+	private Employee assocEmps;
 	private Department deptName;
 	private Position superior;
 	private ArrayList<Position> inferiors;
@@ -15,13 +15,11 @@ public class Position {
 	public Position(String title, String description) {
 		this.title = title;
 		this.description = description;
-		this.assocEmps = new ArrayList<Employee>();
 		this.inferiors = new ArrayList<Position>();
 	}
 
-	public void addEmployees(Employee e) {
-		e.setPosition(this);
-		assocEmps.add(e);
+	public void setEmployee(Employee e) {
+		assocEmps = e;
 	}
 
 	public void print() {
@@ -31,10 +29,8 @@ public class Position {
 	public void print(String string) {
 		System.out.println(string + "Postion Title: " + title);
 		System.out.println(string + "Postion Description: " + description);
-		for (Employee e : assocEmps) {
-			e.print(string + "--");
-		}
-
+		if (assocEmps!= null)
+			assocEmps.print(string + "--");
 	}
 
 	public void setDepartment(Department d) {
@@ -42,11 +38,7 @@ public class Position {
 	}
 
 	public double getSalary() {
-		double totalSalary = 0;
-		for (Employee e : assocEmps) {
-			totalSalary += e.getSalary();
-		}
-		return totalSalary;
+		return assocEmps.getSalary();
 	}
 
 	public Position getSuperior() {
@@ -57,22 +49,26 @@ public class Position {
 		this.superior = superior;
 		superior.addInferior(this);
 	}
-	
-	public void addInferior(Position inferior){
-		inferiors.add(inferior);
-		inferior.setSuperior(this);
+
+	public void addInferior(Position inferior) {
+		if (!inferiors.contains(inferior)) {
+			inferiors.add(inferior);
+			inferior.setSuperior(this);
+		}
+
 	}
-	
-	public void printDownLine(){
+
+	public void printDownLine() {
 		printDownLine("");
 	}
-	
-	public void printDownLine(String indent){
-		if(inferiors.size()>0){
-			for(Position p : inferiors){
-				System.out.println(p.print(indent));
+
+	public void printDownLine(String indent) {
+		print(indent);
+		if (inferiors.size() > 0) {
+			for (Position p : inferiors) {
+				p.printDownLine(indent+" ");
 			}
 		}
-		
+
 	}
 }
