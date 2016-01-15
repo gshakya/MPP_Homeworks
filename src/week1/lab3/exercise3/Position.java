@@ -18,6 +18,10 @@ public class Position {
 		this.inferiors = new ArrayList<Position>();
 	}
 
+	public Department getDeptName() {
+		return deptName;
+	}
+
 	public void setEmployee(Employee e) {
 		assocEmps = e;
 	}
@@ -29,7 +33,7 @@ public class Position {
 	public void print(String string) {
 		System.out.println(string + "Postion Title: " + title);
 		System.out.println(string + "Postion Description: " + description);
-		if (assocEmps!= null)
+		if (assocEmps != null)
 			assocEmps.print(string + "--");
 	}
 
@@ -66,7 +70,7 @@ public class Position {
 		print(indent);
 		if (inferiors.size() > 0) {
 			for (Position p : inferiors) {
-				p.printDownLine(indent+" ");
+				p.printDownLine(indent + " ");
 			}
 		}
 

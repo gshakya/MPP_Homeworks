@@ -46,5 +46,12 @@ public class Department {
 		
 		return totalSalary;
 	}
-
+	public void printReportingHierarchy(){
+		for (Position p : assocPostions ){
+			if( p.getSuperior().getDeptName()!= p.getDeptName()){
+				p.printDownLine();
+				break;
+			}
+		}
+	}
 }

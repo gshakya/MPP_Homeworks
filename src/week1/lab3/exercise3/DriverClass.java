@@ -8,9 +8,14 @@ public class DriverClass {
 		// TODO Auto-generated method stub
 		Company salesCo = new Company("Sales Cooperation");
 		
+		
 		Department marketing = new Department("Marketing", "Fairfield");
 		Department sales = new Department("Sales Department", "Ottumwa");
 		Department directors = new Department("Directors", "New York");
+		
+		salesCo.addDepartment(marketing);
+		salesCo.addDepartment(sales);
+		salesCo.addDepartment(directors);
 		
 		Position ceo = new Position("CEO" , "Chief Executive Officer");
 		Position marketingDeptHead = new Position("Marketing Department Head", "Head of Department of Marketing");
@@ -23,6 +28,20 @@ public class DriverClass {
 		Position salesPerson3 = new Position("Sales Person 3", "Sales Personnal");
 		Position salesPerson4 = new Position("Sales Person 4", "Sales Personnal");
 		Position salesPerson5 = new Position("Sales Person 5", "Sales Personnal");
+		
+		marketing.addPostion(marketingDeptHead);
+		marketing.addPostion(marketer1);
+		
+		sales.addPostion(salesDeptHead);
+		sales.addPostion(salesManager1);
+		sales.addPostion(salesManager2);
+		sales.addPostion(salesPerson1);
+		sales.addPostion(salesPerson2);
+		sales.addPostion(salesPerson3);
+		sales.addPostion(salesPerson4);
+		sales.addPostion(salesPerson5);
+		
+		directors.addPostion(ceo);
 		
 		Employee lyle = new Employee(1, "Lyle", "", "Diaz", "11/27/1986", "4566-78-145", 10000, ceo);
 		Employee anne = new Employee(2, "Anne","","Marie","04/08/1988","7894-89-895",6000,marketingDeptHead);
@@ -53,9 +72,12 @@ public class DriverClass {
 		salesManager2.addInferior(salesPerson5);
 		
 		
-		ceo.printDownLine();
 		
+//		ceo.printDownLine();
 		
+//		salesCo.print();
+		
+		sales.printReportingHierarchy();
 		
 //		verisk.print();
 		
