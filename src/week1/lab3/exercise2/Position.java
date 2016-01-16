@@ -2,49 +2,44 @@ package week1.lab3.exercise2;
 
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
+
 public class Position {
 	private String title;
 	private String description;
-	private ArrayList<Employee> assocEmps;
+	private Employee assocEmps;
 	private Department deptName;
-	
-	
-	
-	
+
 	public Position(String title, String description) {
 		this.title = title;
 		this.description = description;
-		this.assocEmps = new ArrayList<Employee>();
-	}
-	
-	public void addEmployees(Employee e){
-		e.setPosition(this);
-		assocEmps.add(e);
 	}
 
-	public void print(){
+	public Department getDeptName() {
+		return deptName;
+	}
+
+	public void setEmployee(Employee e) {
+		assocEmps = e;
+	}
+
+	public void print() {
 		print("");
 	}
 
-	
 	public void print(String string) {
-		System.out.println(string+"Postion Title: "+ title);
-		System.out.println(string+"Postion Description: "+ description);
-		for (Employee e : assocEmps){
-			e.print(string+"--");
-		}
-		
+		System.out.println(string + "Postion Title: " + title);
+		System.out.println(string + "Postion Description: " + description);
+		if (assocEmps != null)
+			assocEmps.print(string + "--");
 	}
-	
-	public void setDepartment(Department d){
+
+	public void setDepartment(Department d) {
 		this.deptName = d;
 	}
-	
-	public double getSalary(){
-		double totalSalary= 0;
-		for (Employee e : assocEmps){
-			totalSalary += e.getSalary();
-		}
-		return totalSalary;
+
+	public double getSalary() {
+		return assocEmps.getSalary();
 	}
+
 }
