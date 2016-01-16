@@ -14,7 +14,7 @@ public class Employee {
 	
 	
 	public Employee(int employeeId, String firstName, String middleName,
-			String lastName, String dob, String ssn, double salary) {
+			String lastName, String dob, String ssn, double salary, Position p) {
 		super();
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -23,6 +23,7 @@ public class Employee {
 		this.dob = dob;
 		this.ssn = ssn;
 		this.salary = salary;
+		setPosition(p);
 	}
 	
 	public void print(){
@@ -31,18 +32,16 @@ public class Employee {
 
 
 	public void print(String string) {
-		System.out.println(string+"Employee First Name: "+firstName);
-		System.out.println(string+"Employee Middle Name: "+middleName);
-		System.out.println(string+"Employee Last Name: "+lastName);
+		System.out.println(string+"Employee Name: "+firstName+" "+middleName+" "+lastName);
 		System.out.println(string+"Employee Birthdate: "+dob);
 		System.out.println(string+"Employee SSN: "+ ssn);
-		System.out.printf(string+"Employee Salary: $%,.2f \n",salary);
+		System.out.printf(string+"Employee Salary: $%,.2f\n",salary);
 		
 	}
 
 	public void setPosition(Position position) {
 		empPost= position;
+		position.setEmployee(this);
 		
 	}
-
 }
