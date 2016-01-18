@@ -9,7 +9,7 @@ public class ItemCopy {
 		this.copyID = copyID;
 		this.anItem = anItem;
 		anItem.addItem(this); // Adding ItemCopy in the respective Item
-		available = anItem.checkAvailability();
+		available = true ;
 	}
 
 	public String getCopyID() {
