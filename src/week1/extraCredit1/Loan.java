@@ -10,6 +10,22 @@ public class Loan {
 	private Date checkOutDate;
 	private Date returnDate;
 
+	public Member getLoaneeMem() {
+		return loaneeMem;
+	}
+
+	public ItemCopy getItm() {
+		return itm;
+	}
+
+	public Date getCheckOutDate() {
+		return checkOutDate;
+	}
+
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
 	private Loan(Member loaneeMem, ItemCopy itm) {
 
 		this.loaneeMem = loaneeMem;
@@ -25,20 +41,21 @@ public class Loan {
 		cal.add(Calendar.DATE, itm.getAnItem().getLimit());
 		returnDate = cal.getTime();
 
-		loaneeMem.addLoan(this);
-
 	}
 
-	private boolean checkAvailabilty() {
-		return itm.isAvailable();
-	}
-	
-	public Loan newInstance(Member loaneeMem, ItemCopy itm){
-		if (checkAvailabilty()){
+	public static Loan newInstance(Member loaneeMem, ItemCopy itm) {
+		if (itm.isAvailable()) {
 			return new Loan(loaneeMem, itm);
 		}
 		System.out.println("Copy Not Avaliable");
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "Loan [loaneeMem=" + loaneeMem + ", itm=" + itm + ", checkOutDate=" + checkOutDate + ", returnDate="
+				+ returnDate + "]";
+	}
+	
+	
 }
