@@ -11,8 +11,13 @@ public class DateRange {
 		this.endDate = endDate;
 	}
 
-	public boolean isInRange(Calendar date){
-		if(date.after(startDate) & date.before(endDate)){
+	public boolean isInRange(Calendar date) {
+		Calendar startOffset = startDate;
+		startOffset.add(Calendar.DAY_OF_MONTH, -1);
+		Calendar endOffset = endDate;
+		endOffset.add(Calendar.DAY_OF_MONTH, 1);
+
+		if (date.after(startOffset) & date.before(endOffset)) {
 			return true;
 		}
 		return false;
