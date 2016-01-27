@@ -2,7 +2,7 @@ package week2.patternMatching;
 
 import java.util.Scanner;
 
-public class Execise1 {
+public class Exercise1 {
 	public static void main(String[] args) {
 		Scanner ip = new Scanner(System.in);
 		System.out.printf("Enter a license plate Number: ");
