@@ -46,11 +46,22 @@ public class Position {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((assocEmps == null) ? 0 : assocEmps.hashCode());
+		result = prime * result + ((assocEmps == null) ? 0 : assocEmps.subHashCode());
+		result = prime * result + ((deptName == null) ? 0 : deptName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+	
+	public int subHashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((deptName == null) ? 0 : deptName.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -64,7 +75,12 @@ public class Position {
 		if (assocEmps == null) {
 			if (other.assocEmps != null)
 				return false;
-		} else if (!assocEmps.equals(other.assocEmps))
+		} else if (!assocEmps.subEquals(other.assocEmps))
+			return false;
+		if (deptName == null) {
+			if (other.deptName != null)
+				return false;
+		} else if (!deptName.equals(other.deptName))
 			return false;
 		if (description == null) {
 			if (other.description != null)
@@ -78,6 +94,35 @@ public class Position {
 			return false;
 		return true;
 	}
+
+	public boolean subEquals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Position other = (Position) obj;
+		if (deptName == null) {
+			if (other.deptName != null)
+				return false;
+		} else if (!deptName.equals(other.deptName))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	
+
 	
 	
 }
