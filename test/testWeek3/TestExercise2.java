@@ -42,7 +42,7 @@ public class TestExercise2 extends TestCase {
 
 	public void tearDown() throws Exception {
 		super.tearDown();
-		System.setOut(null);
+		System.setOut(originalOut);
 	}
 
 	@Test
