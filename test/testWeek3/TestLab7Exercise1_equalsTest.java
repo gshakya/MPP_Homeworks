@@ -10,6 +10,7 @@ import week3.lab7.exercise1.Position;
 
 public class TestLab7Exercise1_equalsTest extends TestCase {
 
+	
 	public static void main(String[] args) {
 	}
 

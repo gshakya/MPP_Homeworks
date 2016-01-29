@@ -10,6 +10,8 @@ public class Question2_1 {
 		emps.add(new Employee("Prabhat", "Poudel", 1000.45, "HOD"));
 		emps.add(new Employee("Madan", "Siwakoti", 1000.45, "HOD"));
 		emps.add(new Employee("Bimal", "Sharma", 1000.45, "HOD"));
+		emps.add(new Employee("Bibek", "Budhathoki", 1000.45, "HOD"));
+		emps.add(new Employee("Bimal", "Bastola", 1000.45, "HOD"));
 
 		System.out.println(emps.stream().filter(e -> e.getFirstName().startsWith("B")).count());
 	}
