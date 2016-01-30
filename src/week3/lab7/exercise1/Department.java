@@ -50,6 +50,15 @@ public class Department {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((assocPostions == null) ? 0 : assocPostions.hashCode());
+		result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	public int subHashCode() {
+		final int prime = 31;
+		int result = 1;
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -69,6 +78,11 @@ public class Department {
 				return false;
 		} else if (!assocPostions.equals(other.assocPostions))
 			return false;
+		if (companyName == null) {
+			if (other.companyName != null)
+				return false;
+		} else if (!companyName.equals(other.companyName))
+			return false;
 		if (location == null) {
 			if (other.location != null)
 				return false;
@@ -81,6 +95,27 @@ public class Department {
 			return false;
 		return true;
 	}
-	
+
+	public boolean subEquals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Department other = (Department) obj;
+
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
 
 }

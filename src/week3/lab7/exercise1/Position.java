@@ -47,7 +47,7 @@ public class Position {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((assocEmps == null) ? 0 : assocEmps.subHashCode());
-		result = prime * result + ((deptName == null) ? 0 : deptName.hashCode());
+		result = prime * result + ((deptName == null) ? 0 : deptName.subHashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -80,7 +80,7 @@ public class Position {
 		if (deptName == null) {
 			if (other.deptName != null)
 				return false;
-		} else if (!deptName.equals(other.deptName))
+		} else if (!deptName.subEquals(other.deptName))
 			return false;
 		if (description == null) {
 			if (other.description != null)
