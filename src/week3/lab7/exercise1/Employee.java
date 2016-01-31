@@ -26,17 +26,16 @@ public class Employee {
 		setPosition(p);
 	}
 	
-	public void print(){
-		print("");
-	}
 
 
-	public void print(String string) {
-		System.out.println(string+"Employee Name: "+firstName+" "+middleName+" "+lastName);
-		System.out.println(string+"Employee Birthdate: "+dob);
-		System.out.println(string+"Employee SSN: "+ ssn);
-		System.out.printf(string+"Employee Salary: $%,.2f\n",salary);
-		
+	@Override
+	public String toString() {
+		String output ="Employee Name: "+firstName+" "+middleName+" "+lastName;
+		output += "\nEmployee Birthdate: "+dob;
+		output += "\nEmployee SSN: "+ ssn;
+		output += String.format("\nEmployee Salary: $%,.2f",salary);
+		output +=  empPost;
+		return output;
 	}
 
 	public void setPosition(Position position) {
@@ -48,8 +47,6 @@ public class Employee {
 	public double getSalary(){
 		return salary;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
@@ -170,5 +167,8 @@ public class Employee {
 		return true;
 	}
 
+	
+
+	
 	
 }

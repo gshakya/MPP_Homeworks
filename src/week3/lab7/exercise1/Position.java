@@ -10,9 +10,11 @@ public class Position {
 	private Employee assocEmps;
 	private Department deptName;
 
-	public Position(String title, String description) {
+	public Position(String title, String description, Department deptName) {
 		this.title = title;
 		this.description = description;
+		this.deptName = deptName;
+		deptName.addPostion(this);
 	}
 
 	public Department getDeptName() {
@@ -23,20 +25,11 @@ public class Position {
 		assocEmps = e;
 	}
 
-	public void print() {
-		print("");
-	}
+	
 
-	public void print(String string) {
-		System.out.println(string + "Postion Title: " + title);
-		System.out.println(string + "Postion Description: " + description);
-		if (assocEmps != null)
-			assocEmps.print(string + "--");
-	}
-
-	public void setDepartment(Department d) {
-		this.deptName = d;
-	}
+	// public void setDepartment(Department d) {
+	// this.deptName = d;
+	// }
 
 	public double getSalary() {
 		return assocEmps.getSalary();
@@ -52,16 +45,15 @@ public class Position {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-	
+
 	public int subHashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((deptName == null) ? 0 : deptName.hashCode());
+		result = prime * result + ((deptName == null) ? 0 : deptName.subHashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -106,7 +98,7 @@ public class Position {
 		if (deptName == null) {
 			if (other.deptName != null)
 				return false;
-		} else if (!deptName.equals(other.deptName))
+		} else if (!deptName.subEquals(other.deptName))
 			return false;
 		if (description == null) {
 			if (other.description != null)
@@ -120,9 +112,14 @@ public class Position {
 			return false;
 		return true;
 	}
-
 	
 
-	
-	
+	@Override
+	public String toString() {
+		String output = "";
+		output += "\nPostion Title: " + title;
+		output += "\nPostion Description: " + description;
+		output += deptName;
+		return output;
+	}
 }

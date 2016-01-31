@@ -8,27 +8,28 @@ public class Department {
 	private Company companyName;
 	private ArrayList<Position> assocPostions;
 
-	public Department(String name, String location) {
+	public Department(String name, String location, Company companyName) {
 		this.name = name;
 		this.location = location;
+		this.companyName = companyName;
+		companyName.addDepartment(this);
 		assocPostions = new ArrayList<Position>();
 	}
 
 	public void addPostion(Position p) {
-		p.setDepartment(this);
-		assocPostions.add(p);
-	}
-
-	public void print() {
-		print("");
-	}
-
-	public void print(String string) {
-		System.out.println(string + "Department Name: " + name);
-		System.out.println(string + "Location: " + location);
-		for (Position p : assocPostions) {
-			p.print(string + "--");
+		if (!assocPostions.contains(p)) {
+			assocPostions.add(p);
 		}
+	}
+
+	@Override
+	public String toString() {
+		String output="";
+		
+		output += "\nDepartment Name: " + name;
+		output += "\nLocation: " + location;
+		output += companyName; 
+		return output;
 	}
 
 	public void setCompany(Company c) {
@@ -49,7 +50,9 @@ public class Department {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((assocPostions == null) ? 0 : assocPostions.hashCode());
+		for (Position p : assocPostions) {
+			result = prime * result + ((p == null) ? 0 : p.subHashCode());
+		}
 		result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -59,6 +62,7 @@ public class Department {
 	public int subHashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((companyName == null) ? 0 : companyName.subHashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -76,12 +80,19 @@ public class Department {
 		if (assocPostions == null) {
 			if (other.assocPostions != null)
 				return false;
-		} else if (!assocPostions.equals(other.assocPostions))
+		}
+		if (assocPostions.size() != other.assocPostions.size())
 			return false;
+
+		for (int i = 0; i < assocPostions.size(); i++) {
+			if (!assocPostions.get(i).subEquals(other.assocPostions.get(i)))
+				return false;
+		}
+
 		if (companyName == null) {
 			if (other.companyName != null)
 				return false;
-		} else if (!companyName.equals(other.companyName))
+		} else if (!companyName.subEquals(other.companyName))
 			return false;
 		if (location == null) {
 			if (other.location != null)
@@ -105,6 +116,11 @@ public class Department {
 			return false;
 		Department other = (Department) obj;
 
+		if (companyName == null) {
+			if (other.companyName != null)
+				return false;
+		} else if (!companyName.subEquals(other.companyName))
+			return false;
 		if (location == null) {
 			if (other.location != null)
 				return false;
