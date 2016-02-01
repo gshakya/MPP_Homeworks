@@ -1,4 +1,4 @@
-package week1.lab2;
+package week3.lab8.exercise4;
 
 import java.io.*;                 // for I/O
 import java.lang.Integer;  
@@ -37,9 +37,7 @@ public class DepartmentApplication
 		Student leeJohnson = new Student("Lee Johnson","472-6009",19,3.65);
 		dept.addPerson(johnDoe);
 		dept.addPerson(maryJones);
-		dept.addPerson(leeJohnson);
-		
-		
+		dept.addPerson(leeJohnson);		
 		
 
 		// Create staff objects

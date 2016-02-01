@@ -12,7 +12,7 @@ public class SelfPractice {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(isValidEmail("Gr.skya@gmail.com"));
+		System.out.println(isValidEmail("Gr.skya@gmail.com")); 
 		System.out.println(isValidEmail("gr_skya@gmail.com"));
 		System.out.println(isValidEmail("g9_skya@gmail.com"));
 		System.out.println(isValidEmail("9_skya@gmail.com"));
