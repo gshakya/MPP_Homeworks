@@ -48,16 +48,18 @@ public class Department {
 				   .reduce(0.0,(s1,s2)-> s1+s2);
 	}
 
-	public void showAllMembers() {
-		deptMembers.stream().forEach(System.out::println);
+	public String getAllMembersName() {
+		return deptMembers.stream()
+						  .map(m->m.toString())
+						  .reduce("",(m1,m2)->m1+"\n"+m2);
 		
 	}
 
-	public void unitsPerFaculty() {
-		deptMembers.stream()				 
+	public String unitsPerFaculty() {
+		return deptMembers.stream()				 
 				   .filter(p->(p instanceof Faculty))
 				   .map(p->((Faculty)p).getName()+": "+((Faculty)p).gotTotalUnits())
-				   .forEach(System.out::println);
+				   .reduce("",(m1,m2)->m1+"\n"+m2);
 		
 		
 	}
@@ -84,12 +86,14 @@ public class Department {
 		return students;
 	}
 	
-	public void displayStudentsOfFaculty(String name){
+	public String getStudentsNameOfFaculty(String name){
 		Faculty f = getFaculty(name);
 		ArrayList<Student> students  = getAllStudents();
-				
+		
+		return
 		students.stream()
 				.filter(s->s.hasFaculty(f))
-				.forEach(s->System.out.println(s.getName()));
+				.map(Student::getName)
+				.reduce("",(m1,m2)->m1+"\n"+m2);
 	}
 }

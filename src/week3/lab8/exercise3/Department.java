@@ -1,4 +1,4 @@
-package week3.lab8.exercise4;
+package week3.lab8.exercise3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,18 +48,16 @@ public class Department {
 				   .reduce(0.0,(s1,s2)-> s1+s2);
 	}
 
-	public String getAllMembersName() {
-		return deptMembers.stream()
-						  .map(m->m.toString())
-						  .reduce("",(m1,m2)->m1+"\n"+m2);
+	public void showAllMembers() {
+		deptMembers.stream().forEach(System.out::println);
 		
 	}
 
-	public String unitsPerFaculty() {
-		return deptMembers.stream()				 
+	public void unitsPerFaculty() {
+		deptMembers.stream()				 
 				   .filter(p->(p instanceof Faculty))
 				   .map(p->((Faculty)p).getName()+": "+((Faculty)p).gotTotalUnits())
-				   .reduce("",(m1,m2)->m1+"\n"+m2);
+				   .forEach(System.out::println);
 		
 		
 	}
@@ -86,14 +84,12 @@ public class Department {
 		return students;
 	}
 	
-	public String getStudentsNameOfFaculty(String name){
+	public void displayStudentsOfFaculty(String name){
 		Faculty f = getFaculty(name);
 		ArrayList<Student> students  = getAllStudents();
-		
-		return
+				
 		students.stream()
 				.filter(s->s.hasFaculty(f))
-				.map(Student::getName)
-				.reduce("",(m1,m2)->m1+"\n"+m2);
+				.forEach(s->System.out.println(s.getName()));
 	}
 }

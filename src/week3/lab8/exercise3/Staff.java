@@ -1,4 +1,4 @@
-package week3.lab8.exercise4;
+package week3.lab8.exercise3;
 
 public class Staff extends Person implements Earns {
 	
