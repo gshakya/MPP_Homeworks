@@ -96,4 +96,14 @@ public class Department {
 				.map(Student::getName)
 				.reduce("",(m1,m2)->m1+"\n"+m2);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public ArrayList<Person> getDeptMembers() {
+		return deptMembers;
+	}
+	
+	
 }
